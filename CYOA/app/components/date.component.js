@@ -10,16 +10,34 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var date_service_1 = require('../services/date.service');
-var date_model_1 = require('../models/date.model');
+var index_1 = require('../models/index');
 var DateComponent = (function () {
     function DateComponent(_dateService) {
         this._dateService = _dateService;
-        this.date = new date_model_1.Date();
+        this.date = new index_1.Date();
+        this.activitiesEnabled = false;
     }
     DateComponent.prototype.ngOnInit = function () {
         var _this = this;
         this._dateService.getDates()
             .then(function (date) { return _this.date = date; });
+    };
+    DateComponent.prototype.onselect = function () {
+        console.log('Selected');
+    };
+    DateComponent.prototype.startActivities = function (location) {
+        //Find current activity set from location ID
+        this.locationSelected = location;
+        this.currentActivityOrder = 0;
+        this.activitiesEnabled = true;
+        this.goToActivities();
+    };
+    DateComponent.prototype.showActivityDetails = function () {
+    };
+    DateComponent.prototype.goToActivities = function () {
+        var _this = this;
+        this.currentActivityOrder++;
+        this.currentActivities = this.locationSelected.activities.filter(function (act) { return act.activityOrder === _this.currentActivityOrder; });
     };
     DateComponent = __decorate([
         core_1.Component({

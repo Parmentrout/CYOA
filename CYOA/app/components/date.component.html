@@ -1,3 +1,14 @@
-﻿<div>Go on date Here</div>
+﻿<!-- Locations -->
+<div *ngFor="let location of date.locations" class="col-xs-6">
+    <button class="btn btn-default" (click)="startActivities(location)">{{location.name}}</button>
+</div>
 
-{{date.dateId}}
+<!-- Activities -->
+<div *ngIf="activitiesEnabled" >
+    <div *ngFor="let activity of currentActivities" class="col-xs-6">
+        <button class="btn btn-primary" (click)="showActivityDetails(activity)">{{activity.name}}</button><br/>
+           {{activity.description}}<br/>
+           {{activity.address}}<br/>
+        <button class="btn btn-success" (click)="goToActivities()">Finished {{activity.name}}</button>
+    </div>
+</div>

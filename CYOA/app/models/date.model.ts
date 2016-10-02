@@ -3,5 +3,4 @@
 export class Date {
     dateId: number;
     locations: Location[];
-    activities: Activity[];
 }
