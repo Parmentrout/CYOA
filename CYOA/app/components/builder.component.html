@@ -1,1 +1,74 @@
-﻿<div>Form Builder Here</div>
+﻿<div class="container">
+    <div id="locations">
+    <div class="row">
+        <div class="form-group">
+            <div class="col-xs-6">
+                <label class="control-label" for="focusedInput">Location 1</label>
+                <input class="form-control" id="focusedInput" type="text" value="Location 1">
+            </div>
+            <div class="col-xs-6">
+                <label class="control-label" for="focusedInput">Location 2</label>
+                <input class="form-control" type="text" value="Location 2">
+            </div>
+            <div class="col-xs-12">
+                <small><span class="help-block">To get started choose two starting locations. Examples include: Uptown/Downtown, Boulder/Denver, etc.</span></small>
+            </div>
+        </div>
+    </div>
+        <div class="col-xs-6">
+            <button class="btn-success btn">Add Activities for Location 1</button>
+            <!--When you click on this it will bring up the location options-->
+        </div>
+    </div>
+    </div>
+<div class="container">
+    <div id="locationoptions">
+    <div class="row">
+        <div class="col-xs-6">
+            <form>
+                <div class="form-group row">
+                    <label class="control-label" for="focusedInput">Option 1</label>
+                    <input class="form-control" id="focusedInput" type="text" value="This is what will be displayed">
+                </div>
+                <div class="form-group row">
+                    <label class="control-label" for="focusedInput">Description</label>
+                    <input class="form-control" type="text" value="More Info about the Option">
+                </div>
+                <div class="form-group row">
+                    <label class="control-label" for="focusedInput">Address</label>
+                    <input class="form-control" type="text" value="This will provide a link to the destination address">
+                </div>
+            </form>
+        </div>
+        <div class="col-xs-6">
+            <form>
+                <div class="form-group row">
+                    <label class="control-label" for="focusedInput">Option 2</label>
+                    <input class="form-control" id="focusedInput" type="text" value="This is what will be displayed">
+                </div>
+                <div class="form-group row">
+                    <label class="control-label" for="focusedInput">Description</label>
+                    <input class="form-control" type="text" value="More Info about the Option">
+                </div>
+                <div class="form-group row">
+                    <label class="control-label" for="focusedInput">Address</label>
+                    <input class="form-control" type="text" value="This will provide a link to the destination address">
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="col-xs-12">
+        <button class="btn-info btn btn-block">Add Another Activity Set</button>
+        <!--When you click on this it will duplicate the location options and scroll down while leaving the previous set of activities open for editing-->
+    </div>
+    </div>
+    </div>
+<br />
+
+<div class="col-xs-12">
+    <button class="btn-success btn btn-block">Add Activities for Location 2</button>
+    <!--When you click on this it will bring up the location options and get rid of the activities for location 1-->
+</div>
+
+
+

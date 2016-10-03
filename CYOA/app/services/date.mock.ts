@@ -8,7 +8,8 @@ MOCKDATE = {
         {
             locationId: 1, name: 'Uptown', address: '123 abc', dateId: 1, activities:
             [
-                { name: 'UptownActivity1op1', type: 'first', address: '123', locationId: 1, activityOrder: 1, optionId: 1, description: 'My Description' },
+                {
+                    name: 'UptownActivity1op1', type: 'first', address: '123', locationId: 1, activityOrder: 1, optionId: 1, description: 'My Description' },
                 { name: 'UptownActivity1op2', type: 'first', address: '1230', locationId: 1, activityOrder: 1, optionId: 2, description: 'My Description2' },
                 { name: 'UptownActivity2op1', type: 'second', address: '1231', locationId: 1, activityOrder: 2, optionId: 1, description: 'My Description3' },
                 { name: 'UptownActivity2op2', type: 'second', address: '1232', locationId: 1, activityOrder: 2, optionId: 2, description: 'My Description4' },

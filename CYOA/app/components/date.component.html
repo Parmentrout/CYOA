@@ -6,8 +6,8 @@
 <!-- Activities -->
 <div *ngIf="activitiesEnabled" >
     <div *ngFor="let activity of currentActivities" class="col-xs-6">
-        <button class="btn btn-primary" (click)="showActivityDetails(activity)">{{activity.name}}</button><br/>
-           {{activity.description}}<br/>
+        <button class="btn btn-primary btn-lg" (click)="showActivityDetails(activity)">{{activity.name}}</button><br/>
+           <h4>{{activity.description}}</h4><br/>
            {{activity.address}}<br/>
         <button class="btn btn-success"S (click)="goToActivities()">Finished {{activity.name}}</button>
     </div>
