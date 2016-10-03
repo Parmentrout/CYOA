@@ -3,6 +3,6 @@
 @Component({
     moduleId: module.id,
     selector: 'site-home',
-    template: 'Welcome to Home Page'
+    templateUrl: 'home.component.html'
 })
 export class HomeComponent { }
