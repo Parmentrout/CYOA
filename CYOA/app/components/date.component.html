@@ -1,14 +1,32 @@
-﻿<!-- Locations -->
-<div *ngFor="let location of date.locations" class="col-xs-6">
-    <button class="btn btn-primary btn-lg" (click)="startActivities(location)">{{location.name}}</button>
+﻿<!-- Start Date with Date Id -->
+<div class="form-inline">
+    <label for="enterId">Enter Your Date Id: </label>
+    <input type="text" id="enterId" class="form-control" placeholder="123" />
+    <input type="submit" (click)="startDate()" />
+</div>
+
+<!-- Locations -->
+<div id="mylocations" *ngIf="locationShown">
+    <h4>First, Choose your Location!</h4>
+    <div *ngFor="let location of date.locations" class="col-xs-6">
+        <button class="btn btn-primary btn-lg" (click)="startActivities(location)">{{location.name}}</button>
+    </div>
 </div>
 
 <!-- Activities -->
-<div *ngIf="activitiesEnabled" >
-    <div *ngFor="let activity of currentActivities" class="col-xs-6">
-        <button class="btn btn-primary btn-lg" (click)="showActivityDetails(activity)">{{activity.name}}</button><br/>
-           <h4>{{activity.description}}</h4><br/>
-           {{activity.address}}<br/>
-        <button class="btn btn-success"S (click)="goToActivities()">Finished {{activity.name}}</button>
+<div *ngIf="activitiesEnabled">
+    <!--<h4>Activity Group {{currentActivityOrder}}</h4>-->
+    <div *ngFor="let activity of currentActivities" class="col-xs-6" [attr.id]="'activity'+activity.activityId">
+        <button class="btn btn-primary btn-lg" (click)="showActivityDetails(activity)">{{activity.name}}</button><br />
+        <div *ngIf="detailsShown">
+            <h4>{{activity.description}}</h4><br />
+            {{activity.address}}<br />
+            <button class="btn btn-success" S (click)="goToActivities()">Finished {{activity.name}}</button>
+        </div>
     </div>
 </div>
+<style>
+    .myLocations {
+        margin-bottom: 20px;
+    }
+</style>

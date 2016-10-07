@@ -16,28 +16,41 @@ var DateComponent = (function () {
         this._dateService = _dateService;
         this.date = new index_1.Date();
         this.activitiesEnabled = false;
+        this.detailsShown = false;
+        this.locationShown = true;
     }
-    DateComponent.prototype.ngOnInit = function () {
+    DateComponent.prototype.startDate = function () {
         var _this = this;
+        this.locationShown = true;
         this._dateService.getDates()
             .then(function (date) { return _this.date = date; });
     };
-    DateComponent.prototype.onselect = function () {
-        console.log('Selected');
+    DateComponent.prototype.ngOnInit = function () {
     };
     DateComponent.prototype.startActivities = function (location) {
+        //Hide locations
+        this.locationShown = false;
         //Find current activity set from location ID
         this.locationSelected = location;
         this.currentActivityOrder = 0;
         this.activitiesEnabled = true;
         this.goToActivities();
     };
-    DateComponent.prototype.showActivityDetails = function () {
+    DateComponent.prototype.showActivityDetails = function (activity) {
+        // Get other activity
+        var hiddenActivity = this.currentActivities.filter(function (act) { return act.optionId !== activity.optionId; })[0];
+        $('#activity' + hiddenActivity.activityId).hide('slow');
+        this.detailsShown = true;
     };
+    //Move on to next activity
     DateComponent.prototype.goToActivities = function () {
         var _this = this;
+        this.detailsShown = false;
         this.currentActivityOrder++;
         this.currentActivities = this.locationSelected.activities.filter(function (act) { return act.activityOrder === _this.currentActivityOrder; });
+        if (this.currentActivities.length === 0) {
+            this.locationShown = true;
+        }
     };
     DateComponent = __decorate([
         core_1.Component({

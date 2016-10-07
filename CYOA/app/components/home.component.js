@@ -16,7 +16,7 @@ var HomeComponent = (function () {
         core_1.Component({
             moduleId: module.id,
             selector: 'site-home',
-            template: 'Welcome to Home Page'
+            templateUrl: 'home.component.html'
         }), 
         __metadata('design:paramtypes', [])
     ], HomeComponent);

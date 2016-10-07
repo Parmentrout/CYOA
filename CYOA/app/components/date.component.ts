@@ -10,23 +10,29 @@ import { Date, Activity, Location } from '../models/index';
 export class DateComponent implements OnInit {
     date: Date = new Date();
     activitiesEnabled: boolean = false;
+    detailsShown: boolean = false;
     locationSelected: Location;
     currentActivities: Activity[];
     currentActivityOrder: number;
+    locationShown: boolean = true;
 
     constructor(private _dateService: DateService) {
     }
 
-    ngOnInit() {
+    startDate() {
+        this.locationShown = true;
         this._dateService.getDates()
             .then(date => this.date = date);
     }
 
-    onselect(): void {
-        console.log('Selected');
+    ngOnInit() {
+        
     }
 
     startActivities(location: Location): void {
+        //Hide locations
+        this.locationShown = false;
+
         //Find current activity set from location ID
         this.locationSelected = location;
         this.currentActivityOrder = 0;
@@ -35,12 +41,22 @@ export class DateComponent implements OnInit {
         this.goToActivities();
     }
 
-    showActivityDetails(): void {
+    showActivityDetails(activity: Activity): void {
 
+        // Get other activity
+        let hiddenActivity = this.currentActivities.filter(act => act.optionId !== activity.optionId)[0];
+        $('#activity' + hiddenActivity.activityId).hide('slow');
+        this.detailsShown = true;
     }
 
+    //Move on to next activity
     goToActivities(): void {
+        this.detailsShown = false;
         this.currentActivityOrder++;
         this.currentActivities = this.locationSelected.activities.filter(act => act.activityOrder === this.currentActivityOrder);
+
+        if (this.currentActivities.length === 0) {
+            this.locationShown = true;
+        }
     }
 }

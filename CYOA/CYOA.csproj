@@ -341,6 +341,7 @@
     <TypeScriptCompile Include="app\models\location.model.ts" />
     <TypeScriptCompile Include="app\services\date.mock.ts" />
     <TypeScriptCompile Include="app\services\date.service.ts" />
+    <TypeScriptCompile Include="Scripts\jquery.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
